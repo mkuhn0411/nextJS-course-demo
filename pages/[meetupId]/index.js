@@ -31,7 +31,7 @@ export async function getStaticPaths() {
     client.close();
 
     return {
-        fallback: false,
+        fallback: 'blocking', //tells nextjs the list of params declared below might not be exhaustive
         paths: meetups.map(meetup => ({ 
             params: { meetupId: meetup._id.toString() }
         }))
@@ -39,7 +39,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-    console.log("test")
     const meetupId = context.params.meetupId;
 
     const client = await MongoClient.connect('mongodb+srv://melknee04:03WandWandMongo@cluster0.af3ulbx.mongodb.net/meetups?retryWrites=true&w=majority');

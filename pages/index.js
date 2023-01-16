@@ -36,7 +36,7 @@ export async function getStaticProps() {
                 id: meetup._id.toString()
             }))
         },
-        revalidate: 10 //# of secs nextjs waits until it regenerates the page for an incoming request, ensures your data is never older than 10 secos
+        revalidate: 1 //# of secs nextjs waits until it regenerates the page for an incoming request, ensures your data is never older than 10 secos
     }
 }
 
